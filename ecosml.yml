@@ -1,0 +1,22 @@
+version: '1'
+
+# Supply main python function
+main: '02_ApplyModels.py'
+
+# Supply transform function
+transform:
+  file: '01_Normalize.py'
+  arguments:
+    - bands: 'csv'
+
+coefficients: 'PLSR_coefficients_Raw_Aggregated_Nitrogen.csv'
+
+examples:
+  simple:
+    arguments:
+      - bands: 'Bands.csv'
+    source: 
+      file: 'ExampleSpectra.csv'
+    output: 
+      transform : 'ExampleSpectra_Normalized.csv'
+      final : 'ExampleOutput_Predictions.csv'
