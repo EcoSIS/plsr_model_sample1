@@ -9,8 +9,7 @@ transform:
   arguments:
     - bands: 'csv'
 
-coefficients: 'PLSR_coefficients_Raw_Aggregated_Nitrogen.csv'
-
+# will be checked upon submission that values can be replicated
 examples:
   simple:
     arguments:
