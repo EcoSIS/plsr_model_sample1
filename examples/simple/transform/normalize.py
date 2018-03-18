@@ -1,5 +1,6 @@
-from pandas import *
-from numpy import *
+from os import path
+from pandas import DataFrame, read_csv
+from numpy import sqrt, zeros, array
 
 #################################### NOTES
 """
@@ -11,16 +12,19 @@ Process:
     4) the original spectrum divided by the result of 3)
     5) spectra written to an output CSV
 """
-
 #################################### PROCESS
 
-def transform(spectra, args):
+def load(csv):
+    dir, filename = path.split(__file__)
+    return read_csv(path.join(dir, '..', 'input', csv))
+
+def transform(spectra):
 
     # Sample raw AVIRIS spectra
     # specs=read_csv(baseDir+'ExampleSpectra.csv')
 
     # CSV containing bad bands set to 1s
-    bands=read_csv(args.bands)
+    bands=load('Bands.csv')
 
     # Get bad band list (bad bands: IsBad==1, good bands: IsBad==0)
     badBands=bands['IsBad'].values
@@ -41,5 +45,5 @@ def transform(spectra, args):
         # Store results
         outMat[i,:]=nSpec
 
-    # Return normalized spectra dataframe to EcoSML library
+    # Return normalized spectra dataframe
     return DataFrame(columns=spectra.columns, data=outMat)

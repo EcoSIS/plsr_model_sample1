@@ -14,12 +14,16 @@ This code snippet implements getting predictions using
 
 #################################### PROCESS
 
-def run(spectra, coefficients_dir):
+def load(csv):
+    dir, filename = path.split(__file__)
+    return read_csv(path.join(dir, '..', 'coefficients', csv))
+
+def run(spectra):
     # PLSR model coefficients
     # ...one vector (only gets a mean value per pixel)
-    coefs_single=read_csv(path.join(coefficients_dir, 'PLSR_coefficients_Raw_Aggregated_Nitrogen.csv'))
+    coefs_single=load('PLSR_coefficients_Raw_Aggregated_Nitrogen.csv')
     # ...array, gets mean and uncertainty per pixel)
-    coefs_multpl=read_csv(path.join(coefficients_dir, 'PLSR_coefficients_Raw_Full_Nitrogen.csv'))
+    coefs_multpl=load('PLSR_coefficients_Raw_Full_Nitrogen.csv')
 
     # Get coefficients
     # ...single set
