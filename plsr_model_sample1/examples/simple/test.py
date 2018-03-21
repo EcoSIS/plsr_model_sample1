@@ -6,7 +6,7 @@ sys.path.append(path.join('..', '..'))
 from pandas import read_csv
 from pandas.testing import assert_frame_equal
 from transform.normalize import transform
-from main.apply_models import run
+from main.model import run
 
 def load(csv, folder='input'):
   dir, filename = path.split(__file__)
