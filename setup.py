@@ -13,15 +13,15 @@ setup(
     keywords = "testing test test",
     url = "http://ecosml.org",
     packages=[
-        'plsr_model_sample1',
-        'plsr_model_sample1.examples',
-        'plsr_model_sample1.main'
+      'plsr_model_sample1',
+      'plsr_model_sample1.main'
     ],
     package_data={
-      'plsr_model_sample1.coefficients' : 'plsr_model_sample1/coefficients'
+      'plsr_model_sample1' : ['coefficients/*']
     },
+    include_package_data=True,
     long_description=read('README.md'),
     classifiers=[
-        "License :: OSI Approved :: MIT License",
-    ],
+        "License :: OSI Approved :: MIT License"
+    ]
 )
