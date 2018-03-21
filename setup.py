@@ -17,7 +17,9 @@ setup(
         'plsr_model_sample1.examples',
         'plsr_model_sample1.main'
     ],
-    package_data={'plsr_model_sample1.coefficients' : 'plsr_model_sample1/coefficients'}
+    package_data={
+      'plsr_model_sample1.coefficients' : 'plsr_model_sample1/coefficients'
+    },
     long_description=read('README.md'),
     classifiers=[
         "License :: OSI Approved :: MIT License",
