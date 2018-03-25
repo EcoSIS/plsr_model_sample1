@@ -6,7 +6,7 @@ sys.path.append(path.join('..', '..'))
 from pandas import read_csv
 from pandas.testing import assert_frame_equal
 from transform.normalize import transform
-from main.model import run
+import plsr_model_sample1.main.model as model
 
 def load(csv, folder='input'):
   dir, filename = path.split(__file__)
@@ -21,7 +21,7 @@ class TestPackage(unittest.TestCase):
     self.spectra = transform(self.spectra)
     assert_frame_equal(self.spectra, load('ExampleSpectra_Normalized.csv', 'output'))
 
-    result = run(self.spectra)
+    result = model.run(self.spectra)
     assert_frame_equal(result, load('ExampleOutput_Predictions.csv', 'output'))
 
 if __name__ == '__main__':
